@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spandana Damannagari • Data Scientist</title>
+  <meta name="description" content="Portfolio of Spandana Damannagari — Data Science graduate student with projects in AI/ML, NLP, and healthcare analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b12; --bg2:#0b1220; --panel:#0e1626; --muted:#a7b4cc; --text:#eef2ff; --accent:#7c3aed; --accent-2:#22d3ee; --accent-3:#10b981; --line:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth;background:radial-gradient(1200px 600px at 10% 10%,rgba(34,211,238,.08),transparent 60%),radial-gradient(1000px 500px at 90% 0%,rgba(124,58,237,.08),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg2));}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{opacity:.9}
+    /* Header */
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(14px);background:rgba(5,10,20,.55);border-bottom:1px solid var(--line);z-index:50}
+    .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand-logo{width:38px;height:38px;border-radius:10px;background:conic-gradient(from 200deg,var(--accent),var(--accent-2),var(--accent-3),var(--accent));box-shadow:0 8px 24px rgba(124,58,237,.32)}
+    .brand h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.4px}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--muted);font-weight:600;position:relative}
+    .menu a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,transparent,var(--accent-2),transparent);transform:scaleX(0);transition:transform .25s}
+    .menu a:hover:after{transform:scaleX(1)}
+
+    .container{max-width:1200px;margin:auto;padding:44px 20px}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;box-shadow:0 14px 28px rgba(124,58,237,.28);transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(34,211,238,.28)}
+    .btn.alt{background:transparent;border:1px solid var(--line);color:#cfe8ff}
+
+    /* Cards */
+    .card{background:rgba(12,19,35,.65);border:1px solid var(--line);padding:22px;border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03);backdrop-filter: blur(6px)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;padding:62px 0}
+    .hero h2{font-family:"Playfair Display",serif;font-size:54px;line-height:1.08;margin:0 0 14px}
+    .hero p{color:var(--muted);font-size:18px}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+    .chip{background:rgba(12,19,35,.7);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:13px;color:#c9d3ea}
+    .avatar-wrap{perspective:1000px}
+    .avatar{width:220px;height:220px;border-radius:24px;object-fit:cover;box-shadow:0 20px 40px rgba(34,211,238,.18), 0 8px 20px rgba(124,58,237,.18);transform:rotateY(-8deg) rotateX(4deg);transition:transform .6s ease}
+    .avatar:hover{transform:rotateY(0) rotateX(0)}
+
+    /* Sections */
+    section{padding:38px 0}
+    .section-title{font-size:26px;margin:0 0 18px 0;font-weight:800;letter-spacing:.3px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:24px}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),transparent)}
+    .tl-item{position:relative;margin:14px 0}
+    .tl-item::before{content:"";position:absolute;left:-2px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(124,58,237,.15)}
+
+    /* Project cards */
+    .project{display:flex;flex-direction:column;gap:10px;transition:transform .18s ease, box-shadow .18s ease}
+    .project:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .project h4{margin:0;font-size:18px}
+    .project p{margin:0;color:var(--muted)}
+    .tags.small .chip{padding:6px 9px;font-size:12px}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .stat{padding:20px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(124,58,237,.08),rgba(34,211,238,.08));text-align:center}
+    .stat .num{font-size:28px;font-weight:800}
+
+    /* Footer */
+    footer{padding:40px 20px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+
+    /* Back-to-top */
+    #toTop{position:fixed;right:18px;bottom:18px;opacity:0;pointer-events:none;transition:opacity .2s}
+    #toTop.show{opacity:1;pointer-events:auto}
+
+    @media (max-width: 1000px){
+      .hero{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .avatar{width:180px;height:180px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <h1>Spandana Damannagari</h1>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h2>Data Science Graduate Student<br/>AI/ML • NLP • Healthcare Analytics</h2>
+        <p class="muted">
+          Analytical and driven data scientist with experience in statistical modeling, predictive analytics,
+          NLP, and deploying ML systems to the cloud. Passionate about healthcare AI and building reliable
+          data products that create measurable impact.
+        </p>
+        <div class="tags">
+          <span class="chip">Python</span>
+          <span class="chip">R</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Scikit‑learn</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">AWS</span>
+          <span class="chip">GCP</span>
+        </div>
+        <div class="tags">
+          <span class="chip">NLP</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">MLOps</span>
+          <span class="chip">EDA</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Dashboards</span>
+        </div>
+        <div class="tags" style="margin-top:14px">
+          <a class="btn" href="mailto:sdama6@unh.newhaven.edu">Contact Me</a>
+          <a class="btn alt" href="https://www.linkedin.com/in/spandana-damannagari-b33931183/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="card avatar-wrap" style="display:flex;align-items:center;justify-content:center;">
+        <!-- TIP: rename your image in the repo to photo.jpg and keep this src -->
+        <img class="avatar" src="photo.jpg" alt="Spandana Damannagari"/>
+      </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section id="stats">
+      <div class="stats">
+        <div class="stat"><div class="num">10+ </div><div class="muted">ML models built</div></div>
+        <div class="stat"><div class="num">5 </div><div class="muted">End‑to‑end projects</div></div>
+        <div class="stat"><div class="num">2 </div><div class="muted">Peer‑reviewed papers</div></div>
+        <div class="stat"><div class="num">4 </div><div class="muted">Cloud & AI certs</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h3 class="section-title">About</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>
+            I’m Spandana Damannagari, a Data Science M.S. student at the University of New Haven with
+            project experience spanning healthcare analytics, malware detection, and classic AI search.
+            I enjoy transforming messy data into insights and deploying robust ML services.
+          </p>
+          <ul>
+            <li>Translate ambiguous business problems into data questions and experiments.</li>
+            <li>Design features, evaluate models, and communicate results clearly.</li>
+            <li>Comfortable across the stack: data wrangling → modeling → dashboards → deployment.</li>
+          </ul>
+        </div>
+        <div class="card timeline">
+          <div class="tl-item"><strong>New Haven, CT</strong> — Open to internships & full‑time roles</div>
+          <div class="tl-item"><strong>Phone:</strong> <a href="tel:+12036275744">(203) 627‑5744</a></div>
+          <div class="tl-item"><strong>Email:</strong> <a href="mailto:sdama6@unh.newhaven.edu">sdama6@unh.newhaven.edu</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h3 class="section-title">Skills</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <h4>Technical</h4>
+          <p class="muted">Python, R, SQL, Pandas, NumPy, Scikit‑learn, TensorFlow, PyTorch, XGBoost, OpenCV</p>
+          <p class="muted">NLP (tokenization, TF‑IDF, embeddings, BERT), CV (CNNs, transfer learning)</p>
+          <p class="muted">ETL, REST APIs, Docker, CI/CD, AWS (S3, Lambda), GCP</p>
+        </div>
+        <div class="card">
+          <h4>Data & Communication</h4>
+          <p class="muted">Experimental design, A/B testing, dashboards (Tableau/Power BI), storytelling, stakeholder alignment</p>
+          <p class="muted">Leadership & entrepreneurship coursework with team delivery and presentations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h3 class="section-title">Experience</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <h4>Graduate Projects — University of New Haven</h4>
+          <ul>
+            <li><strong>Cloud‑based PE Malware Detection API:</strong> Built static feature pipeline, trained ML classifiers, exposed as REST service; optimized latency and precision.</li>
+            <li><strong>Pac‑Man AI Search:</strong> Implemented DFS/BFS/UCS/A* with custom heuristics; analyzed optimality vs cost.</li>
+            <li><strong>Healthcare Outcomes Modeling:</strong> EDA on risk factors; trained XGBoost/LogReg models; produced actionable insights.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Teaching/Leadership</h4>
+          <ul>
+            <li>Led small team on an NLP mini‑project; created reproducible notebooks and readme.</li>
+            <li>Presented research findings to mixed audiences; incorporated feedback into iterations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h3 class="section-title">Highlighted Projects</h3>
+      <div class="grid cols-3">
+        <div class="card project">
+          <h4>Cloud‑based PE Malware Detection API</h4>
+          <p>ML‑powered static analysis of PE files via a scalable cloud API for fast, lightweight malware detection in enterprise pipelines.</p>
+          <div class="tags small"><span class="chip">Python</span><span class="chip">Scikit‑learn</span><span class="chip">AWS</span><span class="chip">REST</span></div>
+        </div>
+        <div class="card project">
+          <h4>Pac‑Man AI Search</h4>
+          <p>Implemented DFS, BFS, UCS, and A* with custom heuristics to optimize maze navigation; analyzed trade‑offs in optimality vs. cost.</p>
+          <div class="tags small"><span class="chip">Python</span><span class="chip">Search</span><span class="chip">Heuristics</span></div>
+        </div>
+        <div class="card project">
+          <h4>Healthcare Analytics EDA & Prediction</h4>
+          <p>Explored risk factors, built predictive models for outcomes, and communicated insights for decision support.</p>
+          <div class="tags small"><span class="chip">Pandas</span><span class="chip">XGBoost</span><span class="chip">EDA</span></div>
+        </div>
+        <div class="card project">
+          <h4>Face Mask Detection (Research)</h4>
+          <p>Published approach for real‑time face‑mask detection using CNNs; evaluated on public datasets.</p>
+          <div class="tags small"><span class="chip">CNN</span><span class="chip">OpenCV</span></div>
+        </div>
+        <div class="card project">
+          <h4>Lung Cancer CT Classification (Research)</h4>
+          <p>Designed advanced CNN modifications to improve detection metrics and generalization.</p>
+          <div class="tags small"><span class="chip">Deep Learning</span><span class="chip">Medical Imaging</span></div>
+        </div>
+        <div class="card project">
+          <h4>Interactive Dashboards</h4>
+          <p>Built stakeholder‑friendly dashboards (Tableau/Power BI) to track KPIs and model drift.</p>
+          <div class="tags small"><span class="chip">Tableau</span><span class="chip">Power BI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h3 class="section-title">Publications</h3>
+      <div class="card">
+        <ul>
+          <li><strong>Real‑Time Face Mask Detection for COVID‑19 Applications</strong> — Turkish Journal of Computer and Mathematics Education. <a href="https://lnkd.in/gRsZEDnY" target="_blank" rel="noopener">Link</a></li>
+          <li><strong>Advanced CNN Modifications for Detection of Lung Cancer from CT Scan Images</strong> — Journal of Cancer Detection & Research. <a href="https://lnkd.in/gC7tEMXi" target="_blank" rel="noopener">Link</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h3 class="section-title">Education</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <h4>University of New Haven — M.S. Data Science (Expected 2026)</h4>
+          <p class="muted">Dean’s Scholarship (20%). Coursework: Machine Learning, Deep Learning, NLP, AI & Cybersecurity, Leadership & Entrepreneurship.</p>
+        </div>
+        <div class="card">
+          <h4>Malla Reddy Engineering College for Women — B.Tech, IT (Apr 2024)</h4>
+          <p class="muted">Graduated with strong emphasis on software and AI fundamentals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & AWARDS -->
+    <section id="certs">
+      <h3 class="section-title">Certifications & Awards</h3>
+      <div class="grid cols-3">
+        <div class="card"><strong>What is the Metaverse?</strong><div class="muted">Meta — Feb 16, 2023</div></div>
+        <div class="card"><strong>AI on Microsoft Azure</strong><div class="muted">Microsoft — Nov 20, 2022</div></div>
+        <div class="card"><strong>Big Data Analysis Deep Dive</strong><div class="muted">Alibaba Cloud Academy — Nov 21, 2022</div></div>
+        <div class="card"><strong>Modernize Infra & Apps with Google Cloud</strong><div class="muted">Google Cloud — Feb 23, 2023</div></div>
+        <div class="card"><strong>Enterprise & Infrastructure Security</strong><div class="muted">NYU — Feb 23, 2023</div></div>
+        <div class="card"><strong>Dean’s Scholarship</strong><div class="muted">University of New Haven — 20%</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>Let’s chat about data science roles, internships, or collaborations.</p>
+          <p><strong>Email:</strong> <a href="mailto:sdama6@unh.newhaven.edu">sdama6@unh.newhaven.edu</a><br/>
+             <strong>Phone:</strong> <a href="tel:+12036275744">(203) 627‑5744</a></p>
+          <p><a href="https://www.linkedin.com/in/spandana-damannagari-b33931183/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+        <div class="card">
+          <form action="mailto:sdama6@unh.newhaven.edu" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input id="name" name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#0d1320;color:#fff;margin:6px 0 10px"/>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#0d1320;color:#fff;margin:6px 0 10px"/>
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" rows="4" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:#0d1320;color:#fff;margin:6px 0 10px"></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Spandana Damannagari — Built with ♥
+  </footer>
+
+  <button id="toTop" class="btn" aria-label="Back to top">↑</button>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Back to top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) toTop.classList.add('show'); else toTop.classList.remove('show');
+    });
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>
